@@ -5,7 +5,7 @@ import dagger.ObjectGraph;
 /**
  * Created by MARTROUTINE on 26/03/2014.
  */
-public interface injector {
+public interface Injector {
 
     void inject(Object object);
 
