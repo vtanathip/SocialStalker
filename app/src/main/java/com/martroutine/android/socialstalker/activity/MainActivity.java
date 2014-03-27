@@ -1,18 +1,29 @@
-package com.martroutine.android.socialstalker.app;
+package com.martroutine.android.socialstalker.activity;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+
+import com.martroutine.android.socialstalker.app.R;
+
+import java.util.List;
+
+import javax.inject.Inject;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseSocialStalkerActivity {
+
+    public static final String TAG = "socialstalker";
+    @Inject
+    public Activity mActivity;
+
+    @Inject
+    public LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,27 +34,16 @@ public class MainActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-    }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
+        List<String> allProviders = locationManager.getAllProviders();
+        for(String provider : allProviders) {
+            Log.i(TAG, "provider is = " + provider);
         }
-        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 
     /**
@@ -56,7 +56,7 @@ public class MainActivity extends Activity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
             return rootView;
         }
