@@ -5,12 +5,14 @@ import android.app.Fragment;
 import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.martroutine.android.socialstalker.adapter.IntroAdapter;
 import com.martroutine.android.socialstalker.app.R;
+import com.viewpagerindicator.LinePageIndicator;
 
 import javax.inject.Inject;
 
@@ -28,31 +30,40 @@ public class MainActivity extends BaseSocialStalkerActivity {
     @Inject
     public SharedPreferences sharedPreferences;
 
+    private ViewPager viewPager;
+    private LinePageIndicator linePageIndicator;
+    private IntroAdapter introAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         if (sharedPreferences.getBoolean("firstrun", true)) {
-            // Do first run stuff here then set 'firstrun' as false
-            // using the following line to edit/commit prefs
-            Log.i(TAG,"SharePreference data= " + sharedPreferences.getBoolean("firstrun", true));
+
+            introAdapter = new IntroAdapter(getSupportFragmentManager());
+            viewPager = (ViewPager) findViewById(R.id.pager);
+            viewPager.setAdapter(introAdapter);
+
+            linePageIndicator = (LinePageIndicator)findViewById(R.id.indicator);
+            linePageIndicator.setViewPager(viewPager);
+
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new PlaceholderFragment(0))
+                    .commit();
+
             sharedPreferences.edit().putBoolean("firstrun", false).commit();
 
-            
-        }
+        } else {
 
-        Log.i(TAG,"SharePreference data= " + sharedPreferences.getBoolean("firstrun", true));
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new PlaceholderFragment(1))
+                    .commit();
+        }
     }
 
     @Override
@@ -60,18 +71,31 @@ public class MainActivity extends BaseSocialStalkerActivity {
         super.onBackPressed();
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
     public static class PlaceholderFragment extends Fragment {
 
-        public PlaceholderFragment() {
+        private int flag = -1;
+
+        public PlaceholderFragment(int flag) {
+            this.flag = flag;
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            int fragment = 0;
+
+            switch (flag) {
+                case 0:
+                    fragment = R.layout.fragment_intro;
+                    break;
+                case 1:
+                    fragment = R.layout.fragment_main;
+                    break;
+                default:
+                    break;
+            }
+
+            View rootView = inflater.inflate(fragment, container, false);
             return rootView;
         }
     }
