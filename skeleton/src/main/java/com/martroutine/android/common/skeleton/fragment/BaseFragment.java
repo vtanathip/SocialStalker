@@ -14,6 +14,6 @@ public class BaseFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         // Assume that it lives within a BaseActivity host
-        ((BaseActivity)getActivity()).inject(this);
+        ((BaseActivity) getActivity()).inject(this);
     }
 }

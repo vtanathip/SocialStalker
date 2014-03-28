@@ -12,6 +12,7 @@ import dagger.Module;
 import dagger.Provides;
 
 import static android.content.Context.LOCATION_SERVICE;
+
 /**
  * Created by MARTROUTINE on 26/03/2014.
  */
@@ -40,7 +41,7 @@ public class AndroidAppModule {
 
     @Provides
     @Singleton
-    SharedPreferences provideSharedPreferences(){
-        return sApplicationContext.getSharedPreferences(SOCIALSTALKER,Context.MODE_PRIVATE);
+    SharedPreferences provideSharedPreferences() {
+        return sApplicationContext.getSharedPreferences(SOCIALSTALKER, Context.MODE_PRIVATE);
     }
 }

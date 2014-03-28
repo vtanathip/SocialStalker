@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by MARTROUTINE on 27/03/2014.
  */
-public class BaseSocialStalkerApplication extends SocialStalkerApplication{
+public class BaseSocialStalkerApplication extends SocialStalkerApplication {
     @Override
     protected List<Object> getAppModules() {
         return Collections.<Object>singletonList(new ApplicationScopeModule());
