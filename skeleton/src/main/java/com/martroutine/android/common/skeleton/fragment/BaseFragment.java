@@ -1,7 +1,7 @@
 package com.martroutine.android.common.skeleton.fragment;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 
 import com.martroutine.android.common.skeleton.activity.BaseActivity;
 
