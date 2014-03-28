@@ -28,7 +28,7 @@ public class InitialActivity extends BaseSocialStalkerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG, "InitialActivity onCreate.");
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_intro);
+        setContentView(R.layout.activity_initial);
 
         if (sharedPreferences.getBoolean("firstrun", true)) {
             sharedPreferences.edit().putBoolean("firstrun", false).commit();
@@ -66,7 +66,7 @@ public class InitialActivity extends BaseSocialStalkerActivity {
                                  Bundle savedInstanceState) {
             Log.d(TAG, "InitialActivity inner class onCreateView.");
 
-            View rootView = inflater.inflate(R.layout.fragment_intro, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_initial, container, false);
 
             viewPager = (ViewPager) rootView.findViewById(R.id.pager);
             linePageIndicator = (LinePageIndicator) rootView.findViewById(R.id.indicator);
