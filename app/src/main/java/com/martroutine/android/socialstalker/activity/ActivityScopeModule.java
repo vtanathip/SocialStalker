@@ -5,6 +5,8 @@ import android.content.Context;
 
 import com.martroutine.android.common.skeleton.qualifier.ForActivity;
 import com.martroutine.android.socialstalker.app.ApplicationScopeModule;
+import com.martroutine.android.socialstalker.fragment.InstructionFragment;
+import com.martroutine.android.socialstalker.fragment.WelcomeFragment;
 
 import javax.inject.Singleton;
 
@@ -20,7 +22,10 @@ import dagger.Provides;
         library = true,
         addsTo = ApplicationScopeModule.class, // Important for object graph validation at compile time
         injects = {
-                MainActivity.class
+                MainActivity.class,
+                InitialActivity.class,
+                WelcomeFragment.class,
+                InstructionFragment.class
         }
 )
 public class ActivityScopeModule {
