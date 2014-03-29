@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by MARTROUTINE on 27/03/2014.
  */
-public class IntroAdapter extends FragmentPagerAdapter {
+public class InitialAdapter extends FragmentPagerAdapter {
 
     public static final String TAG = "socialstalker";
 
@@ -25,7 +25,7 @@ public class IntroAdapter extends FragmentPagerAdapter {
     };
 
 
-    public IntroAdapter(FragmentManager fm) {
+    public InitialAdapter(FragmentManager fm) {
         super(fm);
     }
 
