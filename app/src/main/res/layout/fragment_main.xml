@@ -7,7 +7,16 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|bottom">
     </android.support.v4.view.ViewPager>
+
+    <Button
+        android:text="@string/stlking_button_hint"
+        android:background="@drawable/stalking_button"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="30dp" />
 
 </FrameLayout>

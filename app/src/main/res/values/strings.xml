@@ -11,4 +11,6 @@
         <item>Twitter</item>
     </string-array>
 
+    <string name="stlking_button_hint">Stalking</string>
+
 </resources>
