@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.martroutine.android.socialstalker.adapter.IntroAdapter;
+import com.martroutine.android.socialstalker.adapter.InitialAdapter;
 import com.martroutine.android.socialstalker.app.R;
 import com.viewpagerindicator.LinePageIndicator;
 
@@ -59,7 +59,7 @@ public class InitialActivity extends BaseSocialStalkerActivity {
 
         private ViewPager viewPager;
         private LinePageIndicator linePageIndicator;
-        private IntroAdapter introAdapter;
+        private InitialAdapter initialAdapter;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -71,9 +71,9 @@ public class InitialActivity extends BaseSocialStalkerActivity {
             viewPager = (ViewPager) rootView.findViewById(R.id.pager);
             linePageIndicator = (LinePageIndicator) rootView.findViewById(R.id.indicator);
 
-            introAdapter = new IntroAdapter(getActivity().getSupportFragmentManager());
+            initialAdapter = new InitialAdapter(getActivity().getSupportFragmentManager());
 
-            viewPager.setAdapter(introAdapter);
+            viewPager.setAdapter(initialAdapter);
 
             linePageIndicator.setViewPager(viewPager);
 
