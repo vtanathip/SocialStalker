@@ -1,12 +1,16 @@
 package com.martroutine.android.socialstalker.activity;
 
+import android.app.ActionBar;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.martroutine.android.socialstalker.adapter.TabAdapter;
 import com.martroutine.android.socialstalker.app.R;
 
 
@@ -27,7 +31,12 @@ public class MainActivity extends BaseSocialStalkerActivity {
 
     }
 
-    public static class PlaceHolderFragment extends Fragment {
+    public static class PlaceHolderFragment extends Fragment implements ActionBar.TabListener {
+
+        private ViewPager viewPager;
+        private ActionBar actionBar;
+        private TabAdapter mAdapter;
+        private String[] tabs;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,7 +45,53 @@ public class MainActivity extends BaseSocialStalkerActivity {
 
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
+            tabs = getResources().getStringArray(R.array.tab_name);
+            viewPager = (ViewPager) rootView.findViewById(R.id.pager);
+
+            actionBar = getActivity().getActionBar();
+            mAdapter = new TabAdapter(getActivity().getSupportFragmentManager());
+
+            viewPager.setAdapter(mAdapter);
+            actionBar.setHomeButtonEnabled(false);
+            actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+            for (String tab_name : tabs) {
+                actionBar.addTab(actionBar.newTab().setText(tab_name)
+                        .setTabListener(this));
+                Log.d(TAG, "MainActivity add tab : " + tab_name);
+            }
+
+            viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+
+                @Override
+                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                }
+
+                @Override
+                public void onPageSelected(int position) {
+                    actionBar.setSelectedNavigationItem(position);
+                }
+
+                @Override
+                public void onPageScrollStateChanged(int state) {
+                }
+            });
+
             return rootView;
+        }
+
+        @Override
+        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+            Log.d(TAG, "MainActivity select tab number : " + tab.getPosition());
+            viewPager.setCurrentItem(tab.getPosition());
+        }
+
+        @Override
+        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
+        }
+
+        @Override
+        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         }
 
     }

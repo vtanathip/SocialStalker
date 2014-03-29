@@ -4,5 +4,11 @@
     <string name="app_name">SocialStalker</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    
+    <string-array name="tab_name">
+        <item>Facebook</item>
+        <item>Wordpress</item>
+        <item>Twitter</item>
+    </string-array>
 
 </resources>
