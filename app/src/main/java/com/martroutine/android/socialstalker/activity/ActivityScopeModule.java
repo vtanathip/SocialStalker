@@ -5,8 +5,11 @@ import android.content.Context;
 
 import com.martroutine.android.common.skeleton.qualifier.ForActivity;
 import com.martroutine.android.socialstalker.app.ApplicationScopeModule;
+import com.martroutine.android.socialstalker.fragment.FacebookFragment;
 import com.martroutine.android.socialstalker.fragment.InstructionFragment;
+import com.martroutine.android.socialstalker.fragment.TwitterFragment;
 import com.martroutine.android.socialstalker.fragment.WelcomeFragment;
+import com.martroutine.android.socialstalker.fragment.WordpressFragment;
 
 import javax.inject.Singleton;
 
@@ -25,7 +28,10 @@ import dagger.Provides;
                 MainActivity.class,
                 InitialActivity.class,
                 WelcomeFragment.class,
-                InstructionFragment.class
+                InstructionFragment.class,
+                FacebookFragment.class,
+                WordpressFragment.class,
+                TwitterFragment.class
         }
 )
 public class ActivityScopeModule {
