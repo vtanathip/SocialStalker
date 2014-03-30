@@ -20,6 +20,10 @@
         <activity android:name="com.martroutine.android.socialstalker.activity.MainActivity">
             <action android:name="android.intent.action.VIEW" />
         </activity>
+        <activity android:name="com.martroutine.android.socialstalker.activity.AddStalkingActivity">
+            <action android:name="android.intent.action.VIEW" />
+            <action android:name="android.intent.action.EDIT" />
+        </activity>
     </application>
 
 </manifest>

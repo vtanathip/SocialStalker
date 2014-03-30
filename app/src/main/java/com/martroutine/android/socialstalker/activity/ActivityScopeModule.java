@@ -27,6 +27,7 @@ import dagger.Provides;
         injects = {
                 MainActivity.class,
                 InitialActivity.class,
+                AddStalkingActivity.class,
                 WelcomeFragment.class,
                 InstructionFragment.class,
                 FacebookFragment.class,

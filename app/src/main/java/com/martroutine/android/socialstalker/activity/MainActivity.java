@@ -2,6 +2,7 @@ package com.martroutine.android.socialstalker.activity;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -9,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.martroutine.android.socialstalker.adapter.TabAdapter;
 import com.martroutine.android.socialstalker.app.R;
@@ -74,6 +76,15 @@ public class MainActivity extends BaseSocialStalkerActivity {
 
                 @Override
                 public void onPageScrollStateChanged(int state) {
+                }
+            });
+
+            Button add_staking_button = (Button) rootView.findViewById(R.id.add_stalking_button);
+            add_staking_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(getActivity(),AddStalkingActivity.class);
+                    startActivity(intent);
                 }
             });
 
