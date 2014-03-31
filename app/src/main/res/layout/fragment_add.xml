@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/addLinearLayout"
+        android:layout_width="match_parent"
+        android:background="@color/abs__bright_foreground_disabled_holo_light"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/source_linear_padding"
+        android:paddingBottom="@dimen/source_linear_padding"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true">
+
+        <Button
+            android:text="facebook"
+            android:layout_width="@dimen/standard_source_width"
+            android:layout_height="@dimen/standard_source_height"
+            android:layout_marginRight="@dimen/source_margin_right"
+            android:background="@color/abs__bright_foreground_disabled_holo_dark"/>
+
+        <Button
+            android:text="twitter"
+            android:layout_width="@dimen/standard_source_width"
+            android:layout_height="@dimen/standard_source_height"
+            android:layout_marginRight="@dimen/source_margin_right"
+            android:background="@color/abs__bright_foreground_disabled_holo_dark"/>
+
+        <Button
+            android:text="wordpress"
+            android:layout_width="@dimen/standard_source_width"
+            android:layout_height="@dimen/standard_source_height"
+            android:layout_marginRight="@dimen/source_margin_right"
+            android:background="@color/abs__bright_foreground_disabled_holo_dark"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/standard_button_height"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:hint="@string/source_text_hint" />
+
+    <Button
+        android:id="@+id/stlking_this_source_button"
+        android:layout_width="fill_parent"
+        android:text="@string/source_add_button"
+        android:background="@color/abs__bright_foreground_disabled_holo_dark"
+        android:layout_height="@dimen/standard_button_height"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>

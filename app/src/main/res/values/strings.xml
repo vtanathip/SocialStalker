@@ -12,5 +12,7 @@
     </string-array>
 
     <string name="stlking_button_hint">Stalking</string>
+    <string name="source_text_hint">Put your Name/URL here!</string>
+    <string name="source_add_button">Add</string>
 
 </resources>
