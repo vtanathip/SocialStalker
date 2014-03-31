@@ -79,7 +79,7 @@ public class MainActivity extends BaseSocialStalkerActivity {
                 }
             });
 
-            Button add_staking_button = (Button) rootView.findViewById(R.id.add_stalking_button);
+            Button add_staking_button = (Button) rootView.findViewById(R.id.goto_stalking_page_button);
             add_staking_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

@@ -13,7 +13,7 @@
 
     <Button
         android:text="@string/stlking_button_hint"
-        android:id="@+id/add_stalking_button"
+        android:id="@+id/goto_stalking_page_button"
         android:background="@drawable/stalking_button"
         android:layout_width="75dp"
         android:layout_height="75dp"
